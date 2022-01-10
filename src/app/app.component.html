@@ -1,0 +1,22 @@
+<kendo-grid
+        [data]="gridData"
+
+        [sortable]="true"
+        [pageable]="true"
+        [filterable]="true"
+        (dataStateChange)="dataStateChange($event)"
+    >
+    <kendo-grid-column field="ProductID" title="ID"  [filterable]="false">
+    </kendo-grid-column>
+    <kendo-grid-column field="ProductName" title="Product Name">
+    </kendo-grid-column>
+    <kendo-grid-column field="FirstOrderedOn" title="First Ordered On"  filter="date" format="{0:d}">
+    </kendo-grid-column>
+    <kendo-grid-column field="UnitPrice" title="Unit Price" filter="numeric" format="{0:c}">
+    </kendo-grid-column>
+    <kendo-grid-column field="Discontinued" filter="boolean">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <input type="checkbox" [checked]="dataItem.Discontinued" disabled/>
+        </ng-template>
+    </kendo-grid-column>
+    </kendo-grid>
